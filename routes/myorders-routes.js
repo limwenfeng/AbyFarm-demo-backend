@@ -6,33 +6,6 @@ const myordersControllers = require('../controllers/myorders-controllers');
 const router = express.Router();
 
 
-router.get('/user/:uid', placesControllers.getPlacesByUserId);
-
-router.post(
-  '/',
-  [
-    check('title')
-      .not()
-      .isEmpty(),
-    check('description').isLength({ min: 5 }),
-    check('address')
-      .not()
-      .isEmpty()
-  ],
-  placesControllers.createPlace
-);
-
-router.patch(
-  '/:pid',
-  [
-    check('title')
-      .not()
-      .isEmpty(),
-    check('description').isLength({ min: 5 })
-  ],
-  placesControllers.updatePlace
-);
-
-router.delete('/:pid', placesControllers.deletePlace);
+router.get('/', myordersControllers.getOrdersByUserId);
 
 module.exports = router;

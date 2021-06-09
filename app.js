@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const productsRoutes = require('./routes/products-routes');
 const usersRoutes = require('./routes/users-routes');
-// const myordersRoutes = require();
+const myordersRoutes = require('./routes/myorders-routes');
 const itemsRoutes = require('./routes/items-routes');
 const checkoutRoutes = require('./routes/checkout-routes');
 const HttpError = require('./models/http-error');
@@ -26,7 +26,8 @@ app.use('/preorder', productsRoutes);
 app.use('/buynow', productsRoutes);
 app.use('/items', itemsRoutes); 
 app.use('/users', usersRoutes);
-app.user('./cart', checkoutRoutes);
+app.use('/myorders', myordersRoutes);
+app.use('/cart', checkoutRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError('Could not find this route.', 404);

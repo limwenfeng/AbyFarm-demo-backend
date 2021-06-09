@@ -5,6 +5,7 @@ const db = mysql.createConnection({
     user     : 'root',
     password : '123456',
     database : 'abyfarm',
+    dateStrings: true,
 });
   
 // Connect
